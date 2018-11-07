@@ -1,0 +1,54 @@
+<!-- Generated template for the AddTickerComponent component -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add Ticker</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="Dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-list [formGroup]="formData">
+      <!-- <ion-item>
+          <ion-input text-right name="Slug" placeholder="*سلگ" type="text" [formControl]="formData.controls['Slug']"></ion-input>
+        </ion-item> -->
+    <!-- <ion-textarea text-right name="Title" placeholder="*ٹکر" [formControl]="formData.controls['Text']"></ion-textarea> -->
+    <textarea  style="height:50px;width: 100%;min-height: 300px" #myInput placeholder="*Ticker"  id="myInput" rows="1" (keyup)="resize()"  [formControl]="formData.controls['Text']"></textarea>
+
+    <ion-grid class="tickBtns">
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-start block (click)="openFolderModal()">
+            <ion-icon name="list-box"></ion-icon> {{  folderName || 'Select Folder' }}
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-start block (click)="openSlugModal()">
+            <ion-icon name="list-box"></ion-icon> {{  slugName || 'Select Beat' }}
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button *ngIf="!isBrowser" ion-button icon-start block (click)="addMedia()">
+            <ion-icon name="attach"></ion-icon> Attachment
+          </button>
+          <div class="uploadBtn" *ngIf="isBrowser">
+            <button  [disabled]="!slugName"  ion-button clear block><ion-icon name="attach"></ion-icon> &nbsp;&nbsp; Add Files / Images ({{mediaResources.length}} Files)</button>
+            <input [disabled]="!slugName"  type="file" id="file" name="file" (change)="handleFileInput($event.target.files)" multiple>
+          </div>
+          <!--<h2>{{mediaResources.length}}</h2>-->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+  <div *ngIf="isBrowser"> </div>
+</ion-content>
+<ion-footer>
+  <button ion-button block class="addTicker" (click)="submit()" [disabled]="!formData.valid" no-margin>Add Ticker</button>
+</ion-footer>

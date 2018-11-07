@@ -1,0 +1,22 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\node_modules\\browser-resolve",
+    "\\node_modules\\browser-resolve\\node_modules",
+    "\\node_modules\\browser-resolve\\node_modules\\resolve",
+    "\\node_modules\\browser-resolve\\node_modules\\resolve\\test",
+    "\\node_modules\\browser-resolve\\node_modules\\resolve\\test\\resolver",
+    "\\node_modules\\browser-resolve\\node_modules\\resolve\\test\\resolver\\biz",
+    "\\node_modules\\browser-resolve\\node_modules\\resolve\\test\\resolver\\biz\\node_modules",
+    "\\node_modules\\browser-resolve\\node_modules\\resolve\\test\\resolver\\biz\\node_modules\\garply",
+    "\\node_modules\\browser-resolve\\node_modules\\resolve\\test\\resolver\\incorrect_main",
+    "\\node_modules\\browser-resolve\\node_modules\\resolve\\test\\subdirs",
+    "\\node_modules\\browser-resolve\\node_modules\\resolve\\test\\subdirs\\node_modules",
+    "\\src",
+    "\\src\\assets\\scipts",
+    "\\src\\pages\\ticker",
+    "\\src\\providers",
+    "\\src\\providers\\http-service"
+  ],
+  "PreviewInSolutionExplorer": false
+}

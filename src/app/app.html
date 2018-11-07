@@ -1,0 +1,51 @@
+<ion-menu [content]="content" id="menuleft" side="left">
+  <ion-header class="catHead">
+    <ion-toolbar>
+      <ion-title>MENU</ion-title>
+
+      <!-- <span class="clearall1" (click)="clearCategories()" menuClose="left" >Clear All</span> -->
+    </ion-toolbar>
+    <ion-item *ngFor="let list of pagesArray" [class.highlight]="list.selected" (click)="openPage(list)" menuClose="left">{{list.title}}   <span *ngIf="list.title=='Ticker' && tickerCount > 0" item-end>{{tickerCount}}</span>  </ion-item>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-menu [content]="content" id="right" side="right">
+  <ion-header class="catHead">
+    <ion-toolbar>
+      <ion-title>FILTERS</ion-title>
+      <!-- <span class="clearall1" (click)="clearCategories()" menuClose="left" >Clear All</span> -->
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <!--<ion-list>
+      <button ion-button style="width : 100%" (click)="logout()" >
+        <ion-icon name="log-out"></ion-icon>Logout
+      </button>
+    </ion-list>-->
+  </ion-content>
+  <ion-footer>
+    <button ion-button full clear (click)="logout()">
+      <ion-icon name="log-out" margin-right></ion-icon>
+      Logout
+    </button>
+  </ion-footer>
+</ion-menu>
+<!-- <ion-header *ngIf="isLogin">
+
+  <ion-navbar>
+    <button ion-button menuToggle="left">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title (click)="openFolderModal()">{{ selectedfolderObject.Name || '' }}<ion-icon name="arrow-dropdown" end></ion-icon></ion-title>
+
+
+    <button ion-button menuToggle="right" end>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-nav [root]="rootPage" #content></ion-nav>

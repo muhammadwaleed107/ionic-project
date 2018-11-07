@@ -1,0 +1,33 @@
+page-ticker {
+  .text-right {
+    text-align: right;
+  }
+
+  input.text-input.text-input-md {
+    text-align: right;
+  }
+
+  .topbtns {
+    .row {
+      .col {
+        .select-md {background: #fff;max-width: 100%;padding: 10px 8px 10px 16px;margin-top: 2px;border-radius: 2px;font-size: 16px;}
+        //.button[icon-only] {font-size: 8px;}
+      }
+    }
+  }
+
+.profilePic{
+  display: none;
+}
+  .serachBar{
+    .searchbar-md{
+      padding: 4px;
+      .searchbar-input{padding: 4px 55px;}
+    }
+    p{margin: 0px; margin-left: 10px; font-size: 11px;}
+    .closeBtn{margin-top: 4px;height: 3.8rem;}
+  }
+
+
+
+}

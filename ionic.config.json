@@ -1,0 +1,13 @@
+{
+  "name": "nms-cms",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://52.28.232.38:96/api/"
+    }
+  ]
+}

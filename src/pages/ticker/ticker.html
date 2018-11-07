@@ -1,0 +1,60 @@
+
+<ion-header>
+  <ion-grid class="topbtns">
+    <ion-row *ngIf="!isSearch">
+      <ion-col col-8 col-md-10>
+        <!--<button ion-button block (click)="folderData()">folderwise</button>-->
+        <ion-select #C (ionChange)="onGridViewChange(C.value)">
+          <ion-option value="Slug Wise" selected>Sort By Beat</ion-option>
+          <ion-option value="Folder Wise">Sort By Folder</ion-option>
+        </ion-select>
+      </ion-col>
+      <!--<ion-col>
+        <button ion-button block (click)="slugdata()">Slugwise</button>
+      </ion-col>-->
+      <ion-col>
+        <button (click)="openAddTicker()" ion-button icon-only block><ion-icon name="add"></ion-icon></button>
+      </ion-col>
+      <ion-col>
+        <button (click)="isSearchTrue()" ion-button icon-only block><ion-icon name="search"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="isSearch" class="serachBar">
+      <ion-col>
+        <ion-searchbar #inp [(ngModel)]="searchData" (ionInput)="onInput($event)"  (keyup.esc)="isSearchTrue()" [showCancelButton]="shouldShowCancel" minlength="3"  #uname="ngModel"></ion-searchbar>
+        <p *ngIf="uname.errors?.minlength">Must be at least 3 characters long.</p>
+        <p *ngIf="showTickers=='' && isSearch && !uname.errors?.minlength">No Data Found</p>
+      </ion-col>
+      <ion-col col-2><button class="closeBtn" (click)="isSearchTrue()" ion-button icon-only block><ion-icon name="close"></ion-icon></button></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+
+<ion-content class="listContent">
+
+  <!--<button ion-button block class="btnlocation" (click)="openAddTicker()">Add Ticker</button>-->
+
+  <h2 *ngIf="isLoading && tickers !=null && tickers.length<1" class="nonews">Loading...</h2>
+  <h2 *ngIf="(tickers == null || tickers.length == 0) && !isLoading" class="nonews">No ticker found</h2>
+
+
+  <ion-list class="nmsList">
+
+    <ion-item *ngFor="let items of showTickers" (click)="openTickerDetails(items.Key)">
+
+       <ion-avatar item-end class="profileImage">
+         <img src="https://via.placeholder.coms/350x150" onerror="this.parentNode.className ='profilePic'" #img />
+      </ion-avatar> 
+     
+      <ion-avatar item-end>{{geNametInitials(items.Value.LoginId)}}</ion-avatar>
+   
+
+      <p class="time">{{ getTime(items.Value.CreatedOn) }}</p>
+      <h2>{{items.Key || 'Miscellaneous'}}</h2>
+      <h3>{{ (items.Value.Text | slice:0:80)}}</h3>
+      <ion-avatar item-end class="totalTickerCount" *ngIf="items.notiCount > 0"><span> {{ items.notiCount}}</span></ion-avatar>
+      <p *ngIf="items.Value.LoginId"> {{ items.Value.LoginId }}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

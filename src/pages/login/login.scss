@@ -1,0 +1,54 @@
+page-login { 
+    .myloader{
+        padding: 30%;
+    }
+    .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #f63737; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    .getstart { background-image: url('../assets/imgs/bg.png'); }
+    .login { margin: 50px 50px 30px;}
+    .login .logo { display: inline-block; margin-bottom: 15px; }
+    .login .logo img { box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.29); }
+    .login h2 { font-size: 26px; font-weight: bold; color: #494f52; padding: 0px 0 25px; position: relative; line-height: 35px; margin: 0px; }
+    .login h2:after { content: ""; background: #f63737; bottom: 0px; left: 0px; width: 50px; height: 2px; position: absolute; }
+    .loginForm { margin: 30px 0; }
+    .loginForm .item-md { padding-left: 0px; }
+    .loginForm .input-wrapper { margin: 0 0 15px; }
+    .loginForm .label { font-size: 15px; color: #99a1a7; text-transform: uppercase; font-weight: bold; letter-spacing: 3px; margin: 15px 0; }
+    .loginForm .text-input::-moz-placeholder { color: #494f52; }
+    .loginForm .text-input:-ms-input-placeholder { color: #494f52; }
+    .loginForm .text-input::-webkit-input-placeholder { text-indent: 0; color: #494f52; }
+    .loginForm .input { font-size: 15px; color: #000; text-transform: uppercase; font-weight: bold; }
+    .loginForm .item-input-has-focus .label-md[stacked], .input-has-focus .label-md[stacked], .item-input-has-focus .label-md[floating], .input-has-focus .label-md[floating]{ color: #f63737;  }
+     .loginForm .item-md.item-input.item-input-has-focus .item-inner, .item-md.item-input.input-has-focus .item-inner{ border-bottom: 2px solid #f63737; box-shadow: none; }
+     .loginForm .list-md .item-input.item-input-has-focus:last-child, .list-md .item-input.input-has-focus:last-child{border-bottom: 1px solid #f63737; box-shadow: none; border-width: 0px;}
+    .login button { font-size: 15px; font-weight: bold; color: #fff; background: #f63737; box-shadow: 0 23px 43px 0px rgba(246, 55, 55, 0.22); width: 100%; padding: 15px 0; }
+    .headSignIn { padding: 50px 0 12px; color: #fff; font-weight: bold; text-align: center; font-size: 22px; position: relative; z-index: 1; text-transform: uppercase; position: relative; }
+    .headSignIn:before { content: ""; background: #fff; border-radius: 5px; width: 20%; height: 2px; position: absolute; left: 0px; right: 0px; margin: auto; bottom: 0px; }
+    .headSignIn:after { display: none; }
+    .adminWrap ion-list { margin: 100px 0 0px; }
+    .adminWrap ion-item { margin-bottom: 20px; }
+    .adminWrap .button-md { background: #000; color: #fff; }
+    .adminWrap .text-right { text-align: right; }
+    .adminWrap button { background: transparent; color: #fff; font-size: 18px; font-weight: bold; text-transform: uppercase }
+}
+
+@media only screen and (min-width: 1025px) {
+    page-login .login {
+        margin: 50px auto 30px;
+        max-width: 500px;
+        padding: 50px;
+        box-shadow: 0px 0px 100px #ccc;
+    }
+
+}

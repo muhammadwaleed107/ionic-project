@@ -1,0 +1,17 @@
+<!-- Generated template for the PictureWebComponent component -->
+<!-- <img class="imgClass" width=100%" [src]="imgURL"/> -->
+<div class="mediaPop">
+  <button (click)="close()">x</button>
+
+  <div *ngIf="imgURL" class="imgInnrDv">
+
+    <!--<button (click)="close()">x</button>-->
+    <img class="loading" src="{{imgURL}}" [width]="myimg.width" [height]="myimg.height"></div>
+
+  <div *ngIf="videoURL" class="vidInnrDv">
+    <!--<button (click)="close()">x</button>-->
+    <video width="100%" height="100%" controls>
+      <source src="{{videoURL}}" type="video/mp4">
+    </video>
+  </div>
+</div>

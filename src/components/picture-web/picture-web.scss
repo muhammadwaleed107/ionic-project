@@ -1,0 +1,23 @@
+picture-web {
+  background: #000;
+  .mediaPop{
+    position: relative; text-align: center; height: 100%;
+    img{height: auto; max-height: 100%;}
+    button{
+      position: absolute; right: 0px;top: 0px;z-index: 100;padding: 10px 20px;font-size: 38px;color: #fff;background:rgba(0, 0, 0, 0.5);
+      &:hover{opacity: 0.9;}
+    }
+    >div{
+      display:table-cell; height: 100vh;
+      @media only screen and (min-width: 721px) {
+        height:600px; width: 600px;
+      }
+      //display: inline-block; vertical-align: middle;
+      //&.imgInnrDv{display:table-cell; height:600px; }
+    }
+    &:after {content: "";height: 100%;display: inline-block;vertical-align: middle;}
+  }
+  .loading {
+    background: transparent url('assets/imgs/loading_spinner.gif') center no-repeat;
+  }
+}

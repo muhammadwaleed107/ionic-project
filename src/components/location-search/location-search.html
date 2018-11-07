@@ -1,0 +1,12 @@
+<!-- Generated template for the CitySearchComponent component -->
+<div class=citySearchBox>
+    <ion-item>
+        <ion-label> <ion-icon name="search"></ion-icon></ion-label>
+        <ion-input type="text"[(ngModel)]="searchText"  (ngModelChange)="onSearchChange($event)" placeholder="Search"></ion-input>    <ion-icon name="search"></ion-icon>
+</ion-item>
+ <ul>
+    <li *ngFor="let sc of selectedCites" (click)="select(sc)">
+      {{ sc.Location }}
+    </li>
+  </ul>
+</div>

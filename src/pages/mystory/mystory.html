@@ -1,0 +1,38 @@
+<!--
+  Generated template for the MystoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <button class="menuIcon" ion-button menuToggle="left">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Folder</ion-title>
+
+
+    <button ion-button menuToggle="right" end>
+      <ion-icon name="options"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="listContent">
+    <button ion-button block class="btnlocation" (click)="openCreateStory()" >Add Story</button>
+    <h2 *ngIf="news.length==0" class="nonews">No news found</h2>
+    <ion-list class="nmsList">
+
+      <button (click)="editNews(item)" ion-item *ngFor="let item of news" class="text-right">
+        <h2>{{ item.Title }}</h2>
+        <ul *ngIf="item.MediaCount" class="pckgs"><li *ngFor="let obj of item.MediaCount">{{obj.Key}} <span>{{obj.Value}}</span></li></ul>
+        <p>{{getagoTime(item.CreatedOn)}} <span *ngIf="item.LoginId">by {{ item.LoginId }}</span></p>
+        <button ion-button icon-only clear item-end (click)="presentPopover($event,item)">
+          <ion-icon name="more"></ion-icon>
+        </button>
+        <button ion-button icon-only clear item-end (click)="deleteMyStory(item, $event)"><ion-icon name="trash"></ion-icon></button>
+      </button>
+
+    </ion-list>
+  </ion-content>

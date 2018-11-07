@@ -1,0 +1,143 @@
+<!-- Generated template for the showTickerDetailsComponent component -->
+
+
+<ion-header>
+  <!-- <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title *ngIf="slugActive">Beat: {{SlugName || 'Miscellaneous' }}</ion-title>
+    <ion-title *ngIf="!slugActive">Folder: {{SlugName || 'Miscellaneous' }}</ion-title>
+  </ion-toolbar> -->
+  <ion-icon (click)="popPage()" name="arrow-round-back"></ion-icon>
+</ion-header>
+
+<ion-content>
+
+        <!-- <page-ticker></page-ticker> -->
+        <!-- <ticker-details></ticker-details> -->
+
+
+<ion-content class="tickerList" #content>
+  <!--
+    <h2>Slug Name: {{SlugName || 'Miscellaneous' }}</h2>
+
+    <input type="text" name="ticker" [(ngModel)]="txtTicker">
+
+  <div class="bg">
+    <h2><span *ngIf="slugActive">Slug Name</span> <span *ngIf="!slugActive">FolderName</span> {{SlugName || 'Not Available' }}</h2>
+
+    <ion-item *ngIf="slugActive">
+
+        <ion-label>Select Folder Name</ion-label>
+        <ion-select   [(ngModel)]="folderName" >
+          <ion-option value="{{item.Id}}" *ngFor="let item of folderList">{{item.Name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      SlugName: <input type="text" name="inputSlug" *ngIf="!slugActive" [(ngModel)]="inpSlugName">
+    Ticker<input type="text" name="ticker" [(ngModel)]="txtTicker">
+
+
+    <ul *ngFor="let item of showTickerDetails">
+      <li>
+      {{item.Text}}
+      {{item.LoginId}}
+      {{item.Slug}}
+      {{ getagoTime(item.CreatedOn) }}
+    </li>
+
+
+    </ul>
+    -->
+  <!--<ion-scroll scrollY="true">-->
+  <!--
+    <ion-list>
+      <ion-item *ngFor="let item of showTickerDetails" [ngClass]="item.MyTicker == 'MyTicker' ? 'MyTicker' : 'Other'">
+        <div>
+          {{item.Text}}
+          {{item.LoginId}}
+          {{item.Slug}}
+          {{ getagoTime(item.CreatedOn) }}
+        </div>
+      </ion-item>
+    </ion-list>
+    -->
+  <!--</ion-scroll>-->
+
+  <button *ngIf="loopValue<tickerDetails.length" (click)="loadMoreTicker()" ion-button icon-only clear block><ion-icon name="refresh"></ion-icon></button>
+  <ion-card (press)="copyTicker(item.Text)" *ngFor="let item of showTickerDetails;let i = index" [ngClass]="item.MyTicker == 'MyTicker' ? 'MyTicker' : 'Other'">
+    <!-- <ion-card  (press)="copyTicker(item.Text)" *ngFor="let item of showTickerDetails;let i = index" > -->
+    <!-- <div ion-button ion-long-press (onPressStart)="pressed()" (onPressing)="active()" (onPressEnd)="released()">button</div> -->
+
+    <p *ngIf="i == 0;else other_content" class="dateDivide"><span>{{item.TickerDate}}</span></p>
+    <ng-template #other_content> <p *ngIf="item.TickerDate != showTickerDetails[i-1].TickerDate" class="dateDivide"><span>{{getDate(item.CreatedOn)}}</span></p></ng-template>
+
+
+    <!--<p *ngIf="i == 0;else unread" class="dateDivide"><span></span></p>
+    <ng-template #unread> <p *ngIf="item.isRead  != showTickerDetails[i-1].isRead" class="dateDivide"><span>Un Read</span></p></ng-template>-->
+
+
+    <ion-card-content>
+      <p ng-hide="true" [ngClass]="{'unReadStart': (i > 0 && item.isRead  != showTickerDetails[i-1].isRead)}"></p>
+      <ion-icon name="checkmark" role="img" *ngIf="item.isRead" class="icon icon-md firstTickRead ion-md-checkmark" [ngClass]="{'tickRight': item.MyTicker != 'MyTicker'}" aria-label="checkmark" ng-reflect-name="checkmark"></ion-icon>
+      <ion-icon name="checkmark" role="img" *ngIf="item.isRead" class="icon icon-md secondTickRead ion-md-checkmark" [ngClass]="{'tickRight': item.MyTicker != 'MyTicker'}" aria-label="checkmark" ng-reflect-name="checkmark"></ion-icon>
+
+      <div *ngFor="let img of item.MediaResources" class="imgDv">
+        <img src="{{img.ThumbURL}}">
+      </div>
+
+      <h4>{{item.Text}}</h4>
+      <p *ngIf="item.IsFolderWise">{{item.Slug}}</p>
+      <p *ngIf="!item.IsFolderWise">{{getFolderName(item.FolderId)}}</p>
+      <p>{{item.LoginId}} <span class="moveRight" *ngIf="item.MyTicker != 'MyTicker'"> {{ getTime(item.CreatedOn) }} </span> <span class="moveLeft" *ngIf="item.MyTicker == 'MyTicker'">{{ getTime(item.CreatedOn) }}</span></p>
+    </ion-card-content>
+
+  </ion-card>
+
+  
+
+</ion-content>
+
+<ion-footer>
+<!--
+
+  <h2><span *ngIf="slugActive">Slug Name</span> <span *ngIf="!slugActive">FolderName</span> {{SlugName || 'Not Available' }}</h2>
+
+  <div *ngIf="slugActive">
+    <ion-label>Select Folder Name</ion-label>
+    <ion-select [(ngModel)]="folderName" >
+      <ion-option value="{{item.Id}}" *ngFor="let item of folderList">{{item.Name}}</ion-option>
+    </ion-select>
+  </div>
+-->
+
+
+
+
+  <ion-grid>
+    <ion-row>
+      <!-- <ion-col *ngIf="!slugActive"><ion-input type="text" name="inputSlug" [(ngModel)]="inpSlugName" placeholder="Slug"></ion-input></ion-col> -->
+      <!-- <ion-col *ngIf="slugActive">
+        <ion-select [(ngModel)]="folderName" block>
+          <ion-option selected>Select Folder</ion-option>
+          <ion-option value="{{item.Id}}" *ngFor="let item of folderList">{{item.Name}}</ion-option>
+        </ion-select>
+      </ion-col> -->
+      <ion-col style="background-color: white;">
+      <span *ngIf="fileToUpload.length==0" >    <textarea  style="height:50px" #myInput id="myInput" rows="1" maxLength="500" (keyup)="resize()" [(ngModel)]="txtTicker"></textarea></span>
+        <span *ngIf="fileToUpload.length>0"><ion-input   type="text" name="ticker" [(ngModel)]="txtFileName" placeholder="FileName"></ion-input></span> 
+      </ion-col>
+      <ion-col col-1>
+        <button (click)="addTicker()" ion-button clear icon-only block><ion-icon name="send"></ion-icon></button>
+      </ion-col>
+      <ion-col col-1>
+        <button *ngIf="!isBrowser" (click)="addMedia()" ion-button icon-only block><ion-icon name="attach"></ion-icon></button>
+       <div class="uploadBtn" *ngIf="isBrowser"><button ion-button clear icon-only block><ion-icon name="attach"></ion-icon></button><input type="file" id="file" name="file" (change)="handleFileInput($event.target.files)" ><!--{{mediaResources.length}}--></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
+
+</ion-content>

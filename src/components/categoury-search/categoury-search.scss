@@ -1,0 +1,12 @@
+categoury-search {
+  .citySearchBox{background-color:#fff;height:100%;
+    ion-item.item-md{padding-left:0;
+        .item-inner{padding:0 20px;
+            ion-icon{margin-right:5px;}
+        }
+    }
+    ul{padding:0 20px 0;list-style:none;overflow-y:auto;height:calc(100vh - 68px);margin-bottom:20px;
+        li{padding:14px 5px 12px;font-size:14px;color:#656262;font-weight:500;border-bottom:1px solid #dedede;}
+    }
+}
+}

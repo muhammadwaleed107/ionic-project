@@ -1,0 +1,12 @@
+<div class=slugSearchBox>
+    <ion-item>
+        <ion-label> <ion-icon name="search"></ion-icon></ion-label>
+        <ion-input type="text"[(ngModel)]="searchText"  (ngModelChange)="onSearchChange($event)" placeholder="Search"></ion-input>    <ion-icon name="search"></ion-icon>
+        <button *ngIf="slugSearch && UserID.UserId == 1411" (click)="select({Name:searchText})" item-end>Submit</button>
+      </ion-item>
+ <ul>
+    <li *ngFor="let sc of selectedCites" (click)="select(sc)">
+      {{ sc.Name || 'Miscellaneous'}}
+    </li>
+  </ul>
+</div>

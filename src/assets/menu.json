@@ -1,0 +1,18 @@
+[
+{
+  "caption": "Report News",
+  "controlId": "Create Story",
+  "icon": "",
+  "className":"Create Story"
+}, {
+  "caption": "Ticker",
+  "controlId": "Create Ticker",
+  "icon": "",
+  "className":"Create Ticker"
+}, {
+  "caption": "Dashboard",
+  "controlId": "dashboard",
+  "icon": "",
+  "className":"DashboardPage"
+}
+]

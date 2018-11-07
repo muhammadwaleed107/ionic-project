@@ -1,0 +1,39 @@
+<!--
+  Generated template for the NewsStoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+      <button ion-button menuToggle="left" class="menuIcon">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <!-- <ion-title (click)="openFolderModal()">{{ selectedfolderObject.Name || '' }} <ion-icon name="arrow-dropdown" end></ion-icon></ion-title> -->
+      <ion-title>Story</ion-title>
+      <!-- <button ion-button end>
+        <ion-icon name="log-out"></ion-icon>
+      </button> -->
+      <button ion-button menuToggle="right" end>
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-navbar>
+  </ion-header>
+<ion-content class="listContent">
+  <button ion-button block class="btnlocation" (click)="openCreateStory()" >Add Story</button>
+  <h2 *ngIf="isLoading && news.length<1" class="nonews">Loading...</h2>
+  <h2 *ngIf="news.length==0 && !isLoading" class="nonews">No news found</h2>
+  <ion-list class="nmsList">
+
+    <button (click)="editNews(item)" ion-item *ngFor="let item of news" class="text-right">
+      <h2>{{ item.Title }}</h2>
+     <p>{{getagoTime(item.CreatedOn)}}  <span> {{item.CategoryName}}</span>  <span *ngIf="item.LoginId">by {{ item.LoginId }}</span></p>
+      <ul *ngIf="item.MediaCount" class="pckgs"><li *ngFor="let obj of item.MediaCount">{{obj.Key}} <span>{{obj.Value}}</span></li></ul>
+      <button ion-button icon-only clear item-start (click)="openCommentsModal($event)">0</button>
+      <button ion-button icon-only clear item-start (click)="clipToBoard(item.Text,$event)"><ion-icon name="copy"></ion-icon></button>
+      <button ion-button icon-only clear item-start (click)="deleteStory(item, $event)" ><ion-icon name="trash"></ion-icon></button>
+    </button>
+
+  </ion-list>
+</ion-content>

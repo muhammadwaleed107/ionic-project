@@ -1,0 +1,86 @@
+page-news-story {
+    //$cubic: cubic-bezier(.64,.09,.08,1);
+    [class^="tooltip"] {
+        position: relative;
+        &:after {
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          content: attr(data-tooltip);
+          padding: 6px 10px;
+          top: 1.4em;
+          left: 50%;
+          transform: translateX(-50%) translateY(-2px);
+          background: grey;
+          color: white;
+          white-space: nowrap;
+          z-index: 2;font-size:10px;font-weight:400;letter-spacing:0.5px;
+          border-radius: 2px;
+          transition: opacity 0.2s cubic-bezier(.64,.09,.08,1), transform 0.2s cubic-bezier(.64,.09,.08,1);
+        }
+        &:hover {
+          &:after {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+        }
+      }
+      .tooltip--left {
+        &:after {
+          top: -4px;
+          left: 0;
+          transform: translateX(-112%) translateY(0);
+        }
+        &:hover {
+          &:after {
+            transform: translateX(-110%) translateY(0);
+          }
+        }
+      }
+      
+      .tooltip--right {
+        &:after {
+          top: -4px;
+          left: 100%;
+          transform: translateX(12%) translateY(0);
+        }
+        &:hover {
+          &:after {
+            transform: translateX(10%) translateY(0);
+          }
+        }
+      }
+      
+      .tooltip--triangle {
+        &:before {
+          content: '';
+          width: 0;
+          height: 0;
+          border-left: solid 5px transparent;
+          border-right: solid 5px transparent;
+          border-bottom: solid 5px grey;
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          transform: translateX(-50%) translateY(-2px);
+          top: 1.1em;
+          left: 50%;
+          transition: opacity 0.2s cubic-bezier(.64,.09,.08,1), transform 0.2s cubic-bezier(.64,.09,.08,1);
+          z-index: 3;
+        }
+        &:hover {
+          &:before {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+          }
+        }
+      }
+      .listBtn{overflow:visible;
+        .item-inner{overflow:visible;}
+        .tooltip--bottom{overflow:visible;contain:initial;}
+      }
+}

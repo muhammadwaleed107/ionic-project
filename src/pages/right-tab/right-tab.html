@@ -1,0 +1,56 @@
+<!--
+  Generated template for the RightTabPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+ <ion-header>
+   <a id="downloadAnhor" download="file" target="_blank"></a>
+   <ion-grid>
+     <ion-row>
+       <ion-col col-12>
+         <ion-select  [(ngModel)]="selectedSlug" (ionChange)="onSelectChange($event)">
+           <ion-option value="All" selected >All</ion-option>
+           <ion-option   *ngFor="let item of slugs" value="{{item.Text}}">{{item.Text}}</ion-option>
+         </ion-select>
+       </ion-col>
+       <!-- <ion-col col-6>
+         <ion-select>
+           <ion-option value="Slug Wise" selected>Sort By Beat</ion-option>
+           <ion-option value="Folder Wise">Sort By Folder</ion-option>
+         </ion-select>
+       </ion-col> -->
+     </ion-row>
+   </ion-grid>
+
+
+</ion-header>
+
+
+<ion-content class="rightTabContent">
+<ion-grid class="mediaListDv">
+  <ion-row>
+    <ion-col col-4 class="mediaDv" *ngFor="let media of  mediaList;let i = index">
+      <div class="mediawd mimg" *ngIf="media.MediaType==0">
+        <div [style.background-image]="getBg(media.ThumbURL)" (click)="openImg(media.ThumbURL)"></div>
+        <span (click)="openImg(media.ThumbURL)" ><ion-icon name="image" ></ion-icon></span>
+        <span class="lft" (click)="presentPopover(media,i)"  *ngIf="!media.IsAssignToNLE" ><ion-icon name="share-alt"></ion-icon></span>
+        <ul class="ovrlybtn">
+          <li><ion-icon name="eye" (click)="openImg(media.ThumbURL)"></ion-icon></li>
+          <li><ion-icon name="download" (click)="downloadMedia(media)"></ion-icon>
+          </li>
+        </ul>
+      </div>
+      <div class="mediawd mvid" *ngIf="media.MediaType==1">
+        <div [style.background-image]="getBg(media.ThumbURL)"></div>
+        <span><ion-icon name="videocam"></ion-icon></span>
+        <ul class="ovrlybtn">
+          <li (click)="openVideoModal(media.CdnPath || media.SanPath)"><ion-icon name="play" ></ion-icon></li>
+          <li  (click)="downloadMedia(media)"><ion-icon name="download"></ion-icon></li>
+        </ul>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
+<a href="https://docs.google.com/uc?id=0B0jH18Lft7ypSmRjdWg1c082Y2M" download id="download" hidden></a>
